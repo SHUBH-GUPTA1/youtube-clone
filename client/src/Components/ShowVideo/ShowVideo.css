@@ -4,6 +4,7 @@
     margin-bottom: 0;
     width: calc(100% - 0.8rem);
     height: 70%;
+    background-color: transparent;
     border: 1px solid rgba(128,128,128,0.532);
 }
 .video_description{
@@ -32,4 +33,3 @@
     margin: 0.2rem;
     display: flex;
 }
-

@@ -5,15 +5,15 @@
   justify-content: space-around;
 }
 .box_WHL {
-  width: 45%;
+  width: 30%;
   padding: 0.8rem;
-  margin: 00.8rem;
+  margin: 0.8rem;
   color: white;
   display: flex;
   flex-direction: column;
 }
 .box_WHL b {
-  font-size: 3rem;
+  font-size: 2rem;
 }
 .clear_History_btn {
   color: grey;
@@ -29,9 +29,16 @@
   text-decoration: underline;
   color: white;
 }
+.rightSide_whl{
+  width: 60rem;
+  border: 15px solid green;
+  padding: 50px;
+  margin: 20px;
+}
 .leftside_whl {
   background-color: rgba(0, 0, 0, 0.153);
-  height: 50vh;
+  height: 80vh;
+  border-radius: 7%;
 }
 
 .whl_list{

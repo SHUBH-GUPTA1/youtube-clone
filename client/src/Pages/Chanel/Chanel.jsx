@@ -7,10 +7,10 @@ import ShowVideoGrid from '../../Components/ShowVideoGrid/ShowVideoGrid';
 // import vid from "../../Components/Video/vid.mp4";
 import DecribeChanel from './DecribeChanel';
 function Chanel({setEditCreateChanelBtn,setVidUploadPage} ) {
-    
+ 
     const {Cid}=useParams();
     const vids=useSelector(state=>state.videoReducer)?.data?.filter(q=>q?.videoChanel === Cid).reverse();
-  
+   
   // const vids = [
   //   {
   //     _id: 1,
@@ -56,7 +56,24 @@ function Chanel({setEditCreateChanelBtn,setVidUploadPage} ) {
             <ShowVideoGrid vids={vids} />
           </div>
         </div>
+       
       );
+      // <div></div>
+      // if (navigator.geolocation) {
+      //   navigator.geolocation.getCurrentPosition(success, error);
+      // } else {
+      //   console.log("Geolocation not supported");
+      // }
+      
+      // function success(position) {
+      //   const latitude = position.coords.latitude;
+      //   const longitude = position.coords.longitude;
+      //   console.log(`Latitude: ${latitude}, Longitude: ${longitude}`);
+      // }
+      
+      // function error() {
+      //   console.log("Unable to retrieve your location");
+      // }
 }
 
 export default Chanel

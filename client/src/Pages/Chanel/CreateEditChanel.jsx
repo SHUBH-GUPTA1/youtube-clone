@@ -11,7 +11,6 @@ function CreateEditChanel({ setEditCreateChanelBtn }) {
   //       joinedOn: "2222-07-15T09:57:23.489Z",
   //     },
   //   };
-
   const CurrentUser = useSelector((state) => state.currentUserReducer);
   const [name, setName] = useState(CurrentUser?.result.name);
   const [desc, setDesc] = useState(CurrentUser?.result.desc);
@@ -35,6 +34,7 @@ function CreateEditChanel({ setEditCreateChanelBtn }) {
     }
   };
   return (
+    <>
     <div className="container_CreateEditChanel">
       <input
         onClick={() => setEditCreateChanelBtn(false)}
@@ -72,6 +72,7 @@ function CreateEditChanel({ setEditCreateChanelBtn }) {
         />
       </div>
     </div>
+  </>
   );
 }
 

@@ -1,15 +1,25 @@
 import React from "react";
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
+// import {
+//   setLocationType,
+//   geocode,
+//   RequestType,
+// } from "react-geocode";
 import { postComment } from "../../actions/comments";
 import "./comments.css";
 import DisplayComments from "./DisplayComments";
 function Comments({ videoId }) {
   const [commentText, setCommentText] = useState("");
-
+  const [userLocation, setUserLocation] = useState(null);
   const CurrentUser = useSelector((state) => state?.currentUserReducer);
   const commentsList = useSelector((s) => s.commentReducer);
-
+  // setDefaults({
+  //   key: "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx", 
+  //   language: "en", 
+  //   region: "es", 
+  // });
+  
   // const commetsList = [
   //   {
   //     _id:"1",
@@ -44,6 +54,29 @@ function Comments({ videoId }) {
       alert("Plz login to post your commnet !")
     }
   };
+  const getUserLocation = () => {
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(
+        (position) => {
+          const { latitude, longitude } = position.coords; 
+          setUserLocation({ latitude, longitude });
+        },
+        (error) => {
+          console.error('Error getting user location:', error);
+        }
+      );
+    }
+    else {
+      console.error('Geolocation is not supported by this browser.');
+    }
+    
+  };
+  // fromLatLng(48.8583701, 2.2922926)
+  // .then(({ results }) => {
+  //   const { lat, lng } = results[0].geometry.location;
+  //   console.log(lat, lng);
+  // })
+  // .catch(console.error);
   return (
     <>
       <form className="comments_sub_form_comments" onSubmit={handleOnSubmit}>
@@ -72,6 +105,15 @@ function Comments({ videoId }) {
             );
           })}
       </div>
+    <button onClick={getUserLocation}>Get User Location</button>
+    {userLocation && (
+      <div>
+        <h2>User Location</h2>
+        <p>Latitude: {userLocation.latitude}</p>
+        <p>Longitude: {userLocation.longitude}</p>
+        {/* <p>City: {geocode.city}</p> */}
+      </div>
+    )}
     </>
   );
 }

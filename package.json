@@ -1,7 +1,0 @@
-{
-  "dependencies": {
-    "expo-location": "^16.3.0",
-    "expo-status-bar": "^1.7.1",
-    "react-native": "^0.73.0"
-  }
-}
